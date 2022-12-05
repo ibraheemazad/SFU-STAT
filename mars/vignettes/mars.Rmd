@@ -1,0 +1,92 @@
+---
+title: "mars"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Getting started
+
+Install the package.
+Load the package
+```{r setup}
+# library(mars)
+```
+
+
+  
+## Introduction
+
+The MARS package is designed to solve complex non-linear regression problems using recursive partitioning as defined in Friedman's paper, Multivariate Adaptive Regression Splines (1991).
+
+
+The acronym 'MARS' stands for Multivariate Adaptive Regression Splines and is technically trademarked. However, seeing as this package will not be publicly released, we hope for forgiveness in this infringement. 
+
+  
+## The MARS algorithm 
+
+The model we receive at the end from the mars algorithm is a many basis functions in a linear combination, found by least squares
+
+We input a formula, data frame & control object. It uses step-wise algorithms to fit.
+
+### Forward pass
+
+The forward pass algorithm takes as input formula & data then tries to return a matrix of basis functions. 
+
+
+### Backwards pass
+
+The backwards pass algorithm, unlike the forward pass, see the difference in subsets of basis functions.
+
+## Calling mars()
+
+```{r}
+# mars(y~.,dat=mars::marstestdata)
+```
+
+
+## Using mars methods
+
+### Predict():
+Predict with an mars model for new data, returns the predicted basis function. 
+```{r}
+predict
+```
+
+### Plot():
+plots the fitted basis function, made up of 1 to 2 hinge functions. Depends on main effects (1 exp variable) or two-way interactions (2 exp variables)
+```{r}
+plot
+```
+
+### Summary():
+prints a summary of the mars object with the function call. Also prints the summary of the hinges of each basis function.
+Takes as input a mars object
+Returns a summary of the mars object
+```{r}
+summary
+```
+
+### Print():
+Prints out a mars object
+```{r}
+print
+```
+
+
+
+
+## References
+
+Jerome H. Friedman. Multivariate Adaptive Regression Splines (with discussion).
+Annals of Statistics 19/1, 1991. https://statistics.stanford.edu/research/
+multivariate-adaptive-regression-splines.
